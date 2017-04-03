@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text">
+<script>
+    var field = document.querySelector("input");
+    // Your code here.
+    field.addEventListener("input", function() {
+        if ("QWXqwx".indexOf(field.value[field.value.length-1]) + 1) {
+            field.value = field.value.slice(0, -1);
+        }
+        console.log(field.value);
+    })
+
+</script>
+
+</body>
+</html>

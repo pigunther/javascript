@@ -1,0 +1,8 @@
+<!DOCTYPE HTML5>
+<head>
+	<title>Browse a file</title>
+	<script src="js/read_file.js"></script>
+</head>
+<body>
+	<input type="file" id="your-files" multiple>
+</body>

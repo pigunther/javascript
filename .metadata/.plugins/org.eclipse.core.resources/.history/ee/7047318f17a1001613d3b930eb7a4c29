@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>Browse a file</title>
+	<script type="text/javascript" src="js/read_file.js"></script>
+</head>
+<body>
+	<input type="file" id="your-files" multiple>
+</body>
+</html>

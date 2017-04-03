@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div data-tabname="one">Закладка один</div>
+    <div data-tabname="two">Закладка два</div>
+    <div data-tabname="three">Закладка три</div>
+    <div>НЕ закладка</div>
+</div>
+<p> 1234567890 </p>
+<script>
+    function asTabs(node) {
+        // Ваш код.
+        console.log(node)
+        var tabs = node.childNodes;
+        console.log(tabs)
+        node.addEventListener("mouseover", function(event) {
+            for (var i = 0; i < tabs.length; i++) {
+                console.log(tabs[i].getAttribute("data-tabname"));
+                /*if (tabs[i].getAttribute("data-tabname")) {
+                    tabs[i].style.display = "block";
+                    console.log("here")
+                }*/
+            }
+            console.log("focus");
+        })
+        node.addEventListener("mousedown", function(event) {
+            for (var i = 0; i < tabs.length; i++) {
+                console.log(tabs[i].getAttribute("data-tabname"));
+                if (tabs[i].getAttribute("data-tabname"))
+                    tabs[i].style.display = "none";
+            }
+            console.log("blur")
+        })
+    }
+    asTabs(document.querySelector("#wrapper"));
+    var p = document.querySelector("p");
+    p.addEventListener("focus", function(event) {
+        p.innerText = "herehehehrherhehr";
+        console.log(event);
+    })
+    p.addEventListener("blur", function(event) {
+        p.innerText = "nonononon";
+    })
+</script>
+</body>
+</html>

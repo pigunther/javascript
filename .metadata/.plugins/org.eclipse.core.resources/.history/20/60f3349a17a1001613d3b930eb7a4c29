@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<title>Browse a file</title>
+	<!--  <script type="text/javascript" src="js/read_file.js"></script>-->
+	<script>
+	var control = document.getElementById("your-files");
+	control.addEventListener("change", function(event) {
+	    // Когда происходит изменение элементов управления, значит появились новые файлы
+	    var i = 0,
+	        files = control.files,
+	        len = files.length;
+	 
+	    for (; i < len; i++) {
+	        console.log("Filename: " + files[i].name);
+	        console.log("Type: " + files[i].type);
+	        console.log("Size: " + files[i].size + " bytes");
+	    }
+	 
+	}, false);
+	
+	</script>
+</head>
+<body>
+	<input type="file" id="your-files" multiple>
+</body>
+</html>

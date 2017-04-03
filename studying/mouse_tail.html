@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<style>
+    .trail { /* className для элементов, летящих за курсором */
+        position: absolute;
+        /*height: 6px; width: 6px;
+        border-radius: 3px;
+        background: teal;*/
+    }
+    body {
+        height: 300px;
+    }
+</style>
+
+<script>
+    // Ваш код.
+    var div_arr = [];
+    var color = ["red", "yellow", "green", "blue", "teal", "black"];
+    for (var i = 1; i < 6; i++) {
+        var div = document.createElement("div");
+        div.className = "trail";
+        div.style.top = (100 * i) + "px";
+        div.style.left = (100 * i) + "px";
+        div.style.height = (3 * i) + "px";
+        div.style.width = (3 * i) + "px";
+        div.style.background = color[i-1];
+        document.body.appendChild(div);
+        div_arr.push(div);
+
+    }
+    addEventListener("mousemove",  function (event) {
+        for (var i = 0; i < 5; i++) {
+            div_arr[i].style.top = Math.abs(event.pageY - 4 - 4*(i+1)) + "px";
+            div_arr[i].style.left = Math.abs(event.pageX - 4 - 4*(i+1)) + "px";
+        }
+    })
+
+</script>
+</body>
+</html>

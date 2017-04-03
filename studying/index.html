@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h1>Заголовок с элементом <span>span</span> внутри.</h1>
+<p>Параграф с <span>раз</span>, <span>два</span> элементами spans.</p>
+
+<img src="img/cat.png" id="cat" style="position: absolute">
+<img src="img/hat.png" id="hat" style="position: absolute">
+
+<style>
+    /* Определяет стили для красивых таблиц */
+    table  { border-collapse: collapse; }
+    td, th { border: 1px solid black; padding: 3px 8px; }
+    th     { text-align: left; }
+</style>
+
+<script>
+    function buildTable(data) {
+        // Ваш код
+        var table = document.createElement("table");
+        var tr = document.createElement("tr");
+        var th, td;
+        for (var prop in data[0]){
+            th = document.createElement("th");
+            th.innerHTML = prop;
+            tr.appendChild(th);
+        }
+        table.appendChild(tr);
+        for (var i = 0; i < data.length; i++) {
+            tr = document.createElement("tr");
+            for (var prop in data[i]) {
+                td = document.createElement("td");
+                if (/^((\-|\+)\d)?\d*\.?\d*$/.test(data[i][prop])) {
+                    td.style.textAlign = "right";
+                }
+                td.innerHTML = data[i][prop];
+                //alert(data[i][prop] );
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        return table;
+    }
+    function main_mount() {
+        this.name = null;
+        this.country = null;
+        this.height = 0;
+        this.length = 0;
+    }
+
+    var mount1 = new main_mount();
+    var mount2 = new main_mount();
+    mount2.height = 1.43;
+
+    var MOUNTAINS = [mount1, mount2];
+    document.body.appendChild(buildTable(MOUNTAINS));
+
+    function byTagName(node, tagName) {
+        // Ваш код
+        var answer = [];
+        tagName.toLowerCase();
+
+        function my_count(node, tagName, answer) {
+            if (node.tagName) {
+                if (node.tagName.toLowerCase() === tagName)
+                    answer.push(node);
+            }
+            var child_node = node.firstChild;
+            while (child_node !== null) {
+
+                console.log("in ", node.tagName, " with childNode ", child_node);
+                answer.concat(my_count(child_node, tagName, answer));
+                child_node = child_node.nextSibling;
+            }
+            return answer;
+        }
+
+        return my_count(node, tagName, answer)
+    }
+
+    //console.log("my log ", byTagName(document.body, "h1").length);
+    // → 1
+    //console.log("my log ", byTagName(document.body, "span").length);
+    // → 3
+    //var para = document.querySelector("p");
+    //console.log("my log ", byTagName(para, "span").length);
+
+    var cat = document.querySelector("#cat");
+    var hat = document.querySelector("#hat");
+    var st_pos = "200px", pos = 200;
+    cat.style.top = st_pos;
+    cat.style.left = st_pos;
+    hat.style.left = st_pos;
+    hat.style.top = st_pos;
+
+    var angle = 0, last_time = null;
+    function animate(time) {
+        if (last_time != null)
+            angle += (time - last_time) * 0.001;
+        last_time = time;
+        cat.style.top = (Math.sin(angle) * 200 + pos) + "px";
+        cat.style.left = (Math.cos(angle) * 100 + pos) + "px";
+        hat.style.top = (Math.sin(-angle) * 20 + pos) + "px";
+        hat.style.left = (Math.cos(-angle) * 10 + pos) + "px";
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+</script>
+
+
+</body>
+</html>

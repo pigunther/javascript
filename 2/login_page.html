@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="ru"> 
+	<head>
+		<meta charset="utf-8">
+		<title>my page</title>
+		<link rel="stylesheet" href="css/main_login.css">
+		<script type="text/javascript" src="script/main.js"></script> 
+	</head>
+	<body class="gradient_blue">
+		<section class="main_login">
+			<div class="container">
+				<div class="fields">
+					<form class="main_login_form" id="form" action="" method="post">
+						<table class="main_login_form_table">
+							<tr>
+								<td colspan="2">
+									<input class="input" type="text" name="login" id="loginID" placeholder="Login" onchange="change_log()" autofocus></input>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input class="input" type="password" name="password" id="passwordID" placeholder="Password" onchange="change_pass()"></input>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="submit" class="btn btn_log" value="Log in" onclick="click_log_in()" form="form"></input>
+								</td>
+								<td>
+									<input type="submit" class="btn btn_sign" value="Sign up"></input>
+								</td>
+							</tr>
+						</table>	
+					
+					</form>
+				</div>
+			</div>
+		</section>
+	</body>
+
+</html>

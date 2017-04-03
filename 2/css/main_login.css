@@ -1,0 +1,60 @@
+.gradient_blue{
+	//background: linear-gradient(to top, rgba(255,255,255,0), rgba(124, 174, 255, 0.4), rgba(124, 174, 255, 0.7), rgba(124, 174, 255, 0.9), rgba(124, 174, 255, 0.7), rgba(124, 174, 255, 0.4), rgba(255,255,255,0));
+	background: rgba(124, 170, 250, 0.5);
+}
+
+.main_login {
+	height: 500px;
+}
+
+.container {
+	/*margin: 30% 30% 30% 30%;*/
+	position: relative;
+	left: 40%;
+	width: 245px;
+	height: 200px;
+	top: 30%;
+}
+
+.container .fields {
+	background: white;
+	
+	top: inherit;
+	left: inherit;
+	height: 200px;
+	
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+.main_login_form {
+	position: relative;
+	left: 12%;
+	width: 100px;
+	top: 20%;
+	/*right: 10%;*/
+}
+.main_login_form_table {
+	position: relative;
+	width: inherit;
+}
+
+input.input {
+	height: 30px;
+}
+
+.btn {
+	width: 100%;
+	height: 30px;
+	border-radius: 7px;
+	box-shadow: none;
+	border: none;  
+}
+
+.btn_log {
+	background: lightgreen;
+}
+
+.btn_sign {
+	background: rgba(124, 170, 250, 0.5);
+}
+
+
